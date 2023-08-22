@@ -352,9 +352,9 @@ limitations under the License.
 			</plugin>
 
 			<plugin>
-				<groupId>com.apigee.edge.config</groupId>
-                                <artifactId>apigee-config-maven-plugin</artifactId>
-                                <version>2.4.5</version>
+				<groupId>io.apigee.build-tools.enterprise4g</groupId>
+                                <artifactId>apigee-edge-maven-plugin</artifactId>
+                                <version>2.3.0</version>
 				<executions>
 					<execution>
 						<id>configure-bundle-step</id>
