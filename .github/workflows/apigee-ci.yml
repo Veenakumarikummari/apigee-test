@@ -9,6 +9,9 @@ env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
   WORKFLOW_IDENTITY_FEDERATION_NAME: ${{ secrets.WORKFLOW_IDENTITY_FEDERATION_NAME }}
+  AUTHOR_EMAIL: pavan.sirasanambedu@gmail.com
+  APIGEE_DEPLOYMENT_SUFFIX: relase_dev
+  APIGEE_BUILD_DEPLOYMENT_SUFFIX: apigee_relase_dev
 jobs:
   node-build:
     runs-on: ubuntu-latest
@@ -23,6 +26,13 @@ jobs:
       - name: apigeelint
         run: ./node_modules/apigeelint/cli.js -s ./apiproxy -f html.js -e PO013,PO025 >
           ./apigeelint-out.html
+  apigee-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
       - name: Set up JDK 1.8
         uses: actions/setup-java@v3
         with:
@@ -36,16 +46,12 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - id: auth
         name: Authenticate to Google Apigee Cloud
-        uses: google-github-actions/auth@v0
+        uses: google-github-actions/auth@v1
         with:
           token_format: access_token
-          workload_identity_provider: "projects/127369686749/locations/global/workloadIdentityPools/my-pool/providers/my-provider"
-          service_account: "workload-identity-federation@esi-apigee-x-394004.iam.gserviceaccount.com"
-      - name: mvn deploy config xhybrid
-        if: env.API_VERSION == 'googleapi'
-        run: >
-          
-          mvn install -q -Pgoogleapi -Dapigee.org=$APIGEE_ORG -Denv=$APIGEE_ENV -Dbearer={access_token}
+          workload_identity_provider: projects/127369686749/locations/global/workloadIdentityPools/pavan-apigee-git/providers/pavan-apigee-git
+          service_account: workload-identity-federation@esi-apigee-x-394004.iam.gserviceaccount.com
+      - run: echo '${{ steps.auth.outputs.access_token }}'
       - name: mvn package
         run: mvn process-resources -P$API_VERSION -Dcommit=$GIT_COMMIT
           -Dbranch=$GIT_BRANCH -Dauthor=$AUTHOR_EMAIL
@@ -55,6 +61,5 @@ jobs:
           -Denv=$APIGEE_ENV  -Ddeployment.suffix=$APIGEE_DEPLOYMENT_SUFFIX
       - name: mvn deploy proxy xhybrid
         if: env.API_VERSION == 'googleapi'
-        run: mvn apigee-enterprise:deploy -q -Pgoogleapi -Denv=$APIGEE_ENV
-           -Dorg=$APIGEE_ORG
-          -Ddeployment.suffix=$APIGEE_BUILD_DEPLOYMENT_SUFFIX
+        run: mvn apigee-enterprise:deploy -q -P dev -Dbearer=${{
+          steps.auth.outputs.access_token }}
