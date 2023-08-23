@@ -2,14 +2,14 @@
 name: Apigee CICD Using Maven
 on: push
 env:
-  DEPLOYMENT_NAME: Apigee CICD Test
+  DEPLOYMENT_NAME: Apigee-test
   APIGEE_ORG: ${{ secrets.APIGEE_ORG }}
   APIGEE_ENV: ${{ secrets.APIGEE_ENV }}
   API_VERSION: ${{ secrets.API_VERSION }}
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
   WORKFLOW_IDENTITY_FEDERATION_NAME: ${{ secrets.WORKFLOW_IDENTITY_FEDERATION_NAME }}
-  AUTHOR_EMAIL: pavan.sirasanambedu@gmail.com
+  AUTHOR_EMAIL: veenakumari.kummari@easystepin.com
   APIGEE_DEPLOYMENT_SUFFIX: relase_dev
   APIGEE_BUILD_DEPLOYMENT_SUFFIX: apigee_relase_dev
 jobs:
