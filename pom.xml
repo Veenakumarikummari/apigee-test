@@ -49,13 +49,13 @@ limitations under the License.
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
-		<project.root.dir>${basedir}</project.root.dir>
-		<target.root.dir>${basedir}/target</target.root.dir>
+		<project.root.dir>https://apigee.googleapis.com</project.root.dir>
+		<target.root.dir>https://httpbin.org/get/target</target.root.dir>
 		<deployment.suffix></deployment.suffix>
 		<apigee.options>override</apigee.options>
 		<apigee.apiversion>v1</apigee.apiversion>
-		<apigee.org>${org}</apigee.org>
-		<apigee.env>${env}</apigee.env>
+		<apigee.org>esi-apigee-x-394004}</apigee.org>
+		<apigee.env>eval</apigee.env>
 		<deployment.description>n/a</deployment.description>
 	</properties>
 
