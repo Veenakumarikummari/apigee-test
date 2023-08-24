@@ -299,11 +299,11 @@ limitations under the License.
 							<overwrite>true</overwrite>
 							<resources>
 								<resource>
-									<directory>${project.root.dir}</directory>
+									<directory>https://apigee.googleapis.com</directory>
 									<filtering>true</filtering>
 									<includes>
 										<include>apiproxy/**</include>
-										<include>test/integration/**</include>
+										<include>eval/integration/**</include>
 										<include>resources/**</include>
 									</includes>
 								</resource>
@@ -329,14 +329,14 @@ limitations under the License.
 				<configuration>
 					<basedir>${target.root.dir}</basedir>
 					<includes>
-						<include>test/integration/support/init.js</include>
+						<include>eval/integration/support/init.js</include>
 						<include>apiproxy/airports-cicd-v1.xml</include>
 						<include>apiproxy/proxies/default.xml</include>
 					</includes>
 					<replacements>
 						<replacement>
 							<token>org-env.apigee.net</token>
-							<value>${TEST_HOST}</value>
+							<value>https://apigee.googleapis.com</value>
 						</replacement>
 <!-- 						<replacement>
 							<token>/airports-cicd/v1</token>
