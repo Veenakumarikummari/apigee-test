@@ -63,7 +63,7 @@ limitations under the License.
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 <org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
-<project.root.dir>${basedir}</project.root.dir>
+<project.root.dir>https://apigee.googleapis.com}</project.root.dir>
 <target.root.dir>${basedir}/target</target.root.dir>
 <deployment.suffix></deployment.suffix>
 <apigee.options>override</apigee.options>
