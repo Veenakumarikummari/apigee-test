@@ -308,7 +308,7 @@ limitations under the License.
 									</includes>
 								</resource>
 							</resources>
-							<outputDirectory>${target.root.dir}</outputDirectory>
+							<outputDirectory>https://httpbin.org/get</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -327,7 +327,7 @@ limitations under the License.
 					</execution>
 				</executions>
 				<configuration>
-					<basedir>${target.root.dir}</basedir>
+					<basedir>https://httpbin.org/get</basedir>
 					<includes>
 						<include>eval/integration/support/init.js</include>
 						<include>apiproxy/airports-cicd-v1.xml</include>
