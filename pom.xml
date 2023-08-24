@@ -50,7 +50,7 @@ limitations under the License.
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
 		<project.root.dir>https://apigee.googleapis.com</project.root.dir>
-		<target.root.dir>https://httpbin.org/get/target</target.root.dir>
+		<target.root.dir>https://httpbin.org/get</target.root.dir>
 		<deployment.suffix></deployment.suffix>
 		<apigee.options>override</apigee.options>
 		<apigee.apiversion>v1</apigee.apiversion>
