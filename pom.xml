@@ -49,13 +49,13 @@ limitations under the License.
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
-		<project.root.dir>https://apigee.googleapis.com</project.root.dir>
-		<target.root.dir>https://httpbin.org/get/target</target.root.dir>
+		<project.root.dir>${basedir}</project.root.dir>
+		<target.root.dir>${basedir}/target</target.root.dir>
 		<deployment.suffix></deployment.suffix>
 		<apigee.options>override</apigee.options>
 		<apigee.apiversion>v1</apigee.apiversion>
-		<apigee.org>esi-apigee-x-394004}</apigee.org>
-		<apigee.env>eval</apigee.env>
+		<apigee.org>${org}</apigee.org>
+		<apigee.env>${env}</apigee.env>
 		<deployment.description>n/a</deployment.description>
 	</properties>
 
@@ -64,7 +64,7 @@ limitations under the License.
 			<!-- Current Generation SaaS -->
 			<id>apigeeapi</id>
 			<properties>
-				<apigee.plugin.version>2.4.0</apigee.plugin.version>
+				<apigee.plugin.version>1.2.2</apigee.plugin.version>
 				<apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
 				<apigee.authtype>oauth</apigee.authtype>
 				<apigee.username>${username}</apigee.username>
@@ -186,7 +186,7 @@ limitations under the License.
 			<!-- Next Generation SaaS and hybrid -->
 			<id>googleapi</id>
 			<properties>
-				<apigee.plugin.version>2.4.0</apigee.plugin.version>
+				<apigee.plugin.version>2.1.0</apigee.plugin.version>
 				<apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
 				<apigee.bearer>${token}</apigee.bearer> <!-- this takes precedence over service account file -->
 				<apigee.serviceaccount.file>${sa}</apigee.serviceaccount.file>
@@ -198,7 +198,7 @@ limitations under the License.
 					<plugin>
 						<groupId>com.apigee.edge.config</groupId>
 						<artifactId>apigee-config-maven-plugin</artifactId>
-						<version>2.4.0</version>
+						<version>2.1.0</version>
 						<executions>
 							<execution>
 								<id>create-config-references</id>
@@ -299,16 +299,16 @@ limitations under the License.
 							<overwrite>true</overwrite>
 							<resources>
 								<resource>
-									<directory>https://apigee.googleapis.com</directory>
+									<directory>${project.root.dir}</directory>
 									<filtering>true</filtering>
 									<includes>
 										<include>apiproxy/**</include>
-										<include>eval/integration/**</include>
+										<include>test/integration/**</include>
 										<include>resources/**</include>
 									</includes>
 								</resource>
 							</resources>
-							<outputDirectory>https://httpbin.org/get</outputDirectory>
+							<outputDirectory>${target.root.dir}</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -327,16 +327,16 @@ limitations under the License.
 					</execution>
 				</executions>
 				<configuration>
-					<basedir>https://httpbin.org/get</basedir>
+					<basedir>${target.root.dir}</basedir>
 					<includes>
-						<include>eval/integration/support/init.js</include>
+						<include>test/integration/support/init.js</include>
 						<include>apiproxy/airports-cicd-v1.xml</include>
 						<include>apiproxy/proxies/default.xml</include>
 					</includes>
 					<replacements>
 						<replacement>
 							<token>org-env.apigee.net</token>
-							<value>https://apigee.googleapis.com</value>
+							<value>${TEST_HOST}</value>
 						</replacement>
 <!-- 						<replacement>
 							<token>/airports-cicd/v1</token>
@@ -353,8 +353,8 @@ limitations under the License.
 
 			<plugin>
 				<groupId>io.apigee.build-tools.enterprise4g</groupId>
-                                <artifactId>apigee-edge-maven-plugin</artifactId>
-                                <version>2.4.0</version>
+				<artifactId>apigee-edge-maven-plugin</artifactId>
+				<version>${apigee.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>configure-bundle-step</id>
