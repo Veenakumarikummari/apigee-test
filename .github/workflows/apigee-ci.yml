@@ -61,5 +61,4 @@ jobs:
           -Denv=$APIGEE_ENV  -Ddeployment.suffix=$APIGEE_DEPLOYMENT_SUFFIX
       - name: mvn deploy proxy xhybrid
         if: env.API_VERSION == 'googleapi'
-        run: mvn apigee-enterprise:deploy -q -P dev -Dbearer=${{
-          steps.auth.outputs.access_token }}
+        run: mvn apigee-enterprise:deploy -q -P dev -Dbearer=${{steps.auth.outputs.access_token }}
