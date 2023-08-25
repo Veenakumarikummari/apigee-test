@@ -189,7 +189,7 @@ jobs:
 
         run:  |
 
-          mvn install -q -Pgoogleapi -Dapigee.org=esi-apigee-x-394004 -Denv=eval -Dbearer=ya29.a0AfB_byAPc8sx9JLMymHN-RmQAevPkLhL_NXpzXeZauo9MphTJ4fAp5ayCDJt9etkPiAGw8cVFQ3B8yj00l574p8P9-8M3vwCPwlEtu28sDw_ghPMGCLeUZ05GcFydBL8D7bl5amAYvsaLyd8OAnWrzvpDQ80hqdF7YhLxkGJC9UXjfpDaCgYKAS8SARISFQHsvYls3KwjkpGtOtLBdjOTMI8kdg0183 -Dfile=/home/runner/work/apigee/apigee/EdgeConfig/edge.json -Dapigee.options=create
+          mvn install -q -Pgoogleapi -Dapigee.org=esi-apigee-x-394004 -Denv=eval -Dbearer=ya29.a0AfB_byAPc8sx9JLMymHN-RmQAevPkLhL_NXpzXeZauo9MphTJ4fAp5ayCDJt9etkPiAGw8cVFQ3B8yj00l574p8P9-8M3vwCPwlEtu28sDw_ghPMGCLeUZ05GcFydBL8D7bl5amAYvsaLyd8OAnWrzvpDQ80hqdF7YhLxkGJC9UXjfpDaCgYKAS8SARISFQHsvYls3KwjkpGtOtLBdjOTMI8kdg0183 -Dfile=/home/runner/work/apigee/apigee/EdgeConfig/edge.json -Dapigee.options=Async
 
  
 
