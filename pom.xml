@@ -10,11 +10,11 @@
 
     <groupId>apigee</groupId>
 
-    <artifactId>github-cloud</artifactId>
+    <artifactId>github-Test</artifactId>
 
     <version>v1</version>
 
-    <name>github-cloud</name>
+    <name>github-Test</name>
 
     <packaging>pom</packaging>
 
