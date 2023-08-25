@@ -52,7 +52,7 @@ env:
 
   WORKFLOW_IDENTITY_FEDERATION_NAME: ${{ secrets.WORKFLOW_IDENTITY_FEDERATION_NAME }}
 
-  AUTHOR_EMAIL: 'rajeshjanapati@gmail.com'
+  AUTHOR_EMAIL: 'veenakumari.kummari@easystepin.com'
 
   APIGEE_DEPLOYMENT_SUFFIX: 'relase_dev'
 
@@ -174,7 +174,7 @@ jobs:
           token_format: "access_token"
           # create_credentials_file: true
           # activate_credentials_file: true
-          workload_identity_provider: 'projects/127369686749/locations/global/workloadIdentityPools/github-test/providers/github-test'
+          workload_identity_provider: 'projects/127369686749/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
           service_account: 'workload-identity-federation@esi-apigee-x-394004.iam.gserviceaccount.com'
           run: |-
             echo TOKEN: '${{steps.secrets.outputs.token}}'
