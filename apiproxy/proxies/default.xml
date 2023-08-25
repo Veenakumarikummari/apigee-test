@@ -18,7 +18,7 @@
         <Response/>
     </PostFlow>
     <HTTPProxyConnection>
-        <BasePath>/github_messageid</BasePath>
+        <BasePath>/github_test</BasePath>
     </HTTPProxyConnection>
     <RouteRule name="noroute"/>
 </ProxyEndpoint>
