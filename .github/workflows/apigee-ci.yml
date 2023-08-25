@@ -205,8 +205,8 @@ jobs:
 
       - name: mvn config
 
-        run: mvn apigee-enterprise:configure -q -P$API_VERSION -Dorg=$APIGEE_ORG -Denv=$APIGEE_ENV  -Ddeployment.suffix=$APIGEE_DEPLOYMENT_SUFFIX
-
+       # run: mvn apigee-enterprise:configure -q -P$API_VERSION -Dorg=$APIGEE_ORG -Denv=$APIGEE_ENV  -Ddeployment.suffix=$APIGEE_DEPLOYMENT_SUFFIX
+        run: mvn apigee-config:apps -Pdev -Dapigee.config.options=create
  
 
       - name: mvn deploy proxy xhybrid
