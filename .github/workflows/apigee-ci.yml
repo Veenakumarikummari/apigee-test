@@ -181,15 +181,15 @@ jobs:
 
  
 
-    # # Deploy Apigee Config (Apigee [Config] Maven plugin)
+    # Deploy Apigee Config (Apigee [Config] Maven plugin)
 
-    #   - name: mvn deploy config xhybrid
+      - name: mvn deploy config xhybrid
 
-    #     # if: env.API_VERSION == 'googleapi'
+        # if: env.API_VERSION == 'googleapi'
 
-    #     run:  |
+        run:  |
 
-    #       mvn install -q -Pgoogleapi -Dapigee.org=$APIGEE_ORG -Denv=$APIGEE_ENV -Dfile=/home/runner/work/apigee/apigee/*.json -Dapigee.options=async
+          mvn install -q -Pgoogleapi -Dapigee.org=$APIGEE_ORG -Denv=$APIGEE_ENV -Dfile=/home/runner/work/apigee/apigee/EdgeConfig/edge.json -Dapigee.options=async
 
  
 
