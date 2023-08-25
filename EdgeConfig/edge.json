@@ -1,32 +1,212 @@
 {
-    "version":"1.0",
-    "envConfig":{
-       "target_apigee_env":{
-          "targetServers":[
-             {
-                "name":"HTTPBin",
-                "host":"httpbin.org",
-                "isEnabled":true,
-                "port":80
-             }
-          ],
-          "virtualHosts":[],
-          "references":[],
-          "caches":[],
-          "resourcefiles":[],
-          "flowhooks":[],
-          "extensions":[],
-          "keystores":[],
-          "aliases":[]
-       }
-    },
-    "orgConfig":{
-       "specs":[],
-       "apiProducts":[],
-       "userroles":[],
-       "reports":[],
-       "developers":[],
-       "developerApps":{},
-       "importKeys":{}
-    }
- }
+	"version": "1.0",
+	"envConfig": {
+		"test": {
+			"targetServers": [
+				{
+					"name": "HTTPBin",
+					"host": "httpbin.org",
+					"isEnabled": true,
+					"port": 80
+				}
+			],
+			"kvms": [
+				{
+					"entry": [
+						{
+							"name": "COMPANY",
+							"value": "example.com"
+						},
+						{
+							"name": "PREFIX",
+							"value": "EXMPL"
+						}
+					],
+					"name": "backend_account_config"
+				}
+			],
+			"flowhooks": [
+				{
+					"name": "PreProxyFlowHook",
+					"continueOnError": "true",
+					"sharedFlow": "corspreflow"
+				},
+				{
+					"name": "PreTargetFlowHook",
+					"continueOnError": "true",
+					"sharedFlow": "corspreflow"
+				}
+			]
+		}
+	},
+	"orgConfig": {
+		"apiProducts": [
+			{
+				"name": "EchoProduct",
+				"displayName": "Echo Product",
+				"approvalType": "auto",
+				"description": "Echo Product",
+				"attributes": [
+					{
+						"name": "access",
+						"value": "public"
+					}
+				],
+				"environments": [
+					"test",
+					"prod"
+				],
+				"quota": "10000",
+				"quotaInterval": "1",
+				"quotaTimeUnit": "month",
+				"operationGroup": {
+					"operationConfigs": [
+						{
+							"apiSource": "github-Test",
+							"operations": [
+								{
+									"resource": "/",
+									"methods": [
+										"GET"
+									]
+								}
+							],
+							"quota": {
+								"limit": "1000",
+								"interval": "1",
+								"timeUnit": "month"
+							},
+							"attributes": [
+								{
+									"name": "foo",
+									"value": "bar"
+								}
+							]
+						}
+					]
+				},
+				"scopes": []
+			},
+			{
+				"name": "EchoProduct-legacy",
+				"apiResources": [
+					"/",
+					"/**"
+				],
+				"approvalType": "auto",
+				"attributes": [
+					{
+						"name": "description",
+						"value": "Echo Product Legacy"
+					},
+					{
+						"name": "access",
+						"value": "public"
+					}
+				],
+				"description": "Echo Product Legacy",
+				"displayName": "Echo Product Legacy",
+				"environments": [
+					"test",
+					"prod"
+				],
+				"proxies": [
+					"HelloWorld"
+				],
+				"quota": "10000",
+				"quotaInterval": "1",
+				"quotaTimeUnit": "month",
+				"scopes": []
+			}
+		],
+		"kvms": [
+			{
+				"name": "user_account_status",
+				"entry": [
+					{
+						"name": "ACTIVE",
+						"value": "001"
+					},
+					{
+						"name": "DISABLED",
+						"value": "002"
+					}
+				]
+			},
+			{
+				"name": "validation_rules",
+				"entry": [
+					{
+						"name": "name_max_length",
+						"value": "15"
+					},
+					{
+						"name": "max_start_date",
+						"value": "1460896299"
+					}
+				]
+			}
+		],
+		"reports": [
+			{
+				"displayName": "Policy errors",
+				"chartType": "line",
+				"properties": [
+					{
+						"property": "__ui__",
+						"value": [
+							{
+								"name": "description",
+								"value": "This report shows the total number policy errors for API proxies. Proxies with zero errors are not shown."
+							}
+						]
+					}
+				],
+				"metrics": [
+					{
+						"function": "sum",
+						"name": "policy_error"
+					}
+				],
+				"dimensions": [
+					"apiproxy"
+				],
+				"filter": "(policy_error gt 0)",
+				"timeUnit": "hour"
+			}
+		],
+		"developers": [
+			{
+				"email": "veenakumari.kummari@easystepin.com",
+				"firstName": "Veena",
+				"lastName": "kummari",
+				"userName": "veenakumari",
+				"attributes": []
+			}
+		],
+		"developerApps": {
+			"veenakumari.kummari@easystepin.com": [
+				{
+					"name": "veena",
+					"apiProducts": [
+						"EchoProduct"
+					],
+					"callbackUrl": "http://weatherapp.com",
+					"scopes": []
+				}
+			]
+		},
+		"importKeys": {
+			"veenakumari.kummari@easystepin.com": [
+				{
+					"apiProducts": [
+						"EchoProduct"
+					],
+					"name": "coolechoapp",
+					"consumerKey": "abcd",
+					"consumerSecret": "xyz123"
+				}
+			]
+		}
+	}
+}
