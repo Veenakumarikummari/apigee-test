@@ -3,7 +3,7 @@
     <Description></Description>
     <CreatedAt>1692344891525</CreatedAt>
     <LastModifiedAt>1692345383846</LastModifiedAt>
-    <BasePaths>/github_messageid</BasePaths>
+    <BasePaths>/github_test</BasePaths>
     <Policies>
         <Policy>AM-Response</Policy>
         <Policy>FC-JWT-Token</Policy>
