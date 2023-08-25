@@ -189,7 +189,7 @@ jobs:
 
         run:  |
 
-          mvn install -q -Pgoogleapi -Dapigee.org=$APIGEE_ORG -Denv=$APIGEE_ENV -Dfile=/home/runner/work/apigee/apigee/EdgeConfig/edge.json -Dapigee.options=async
+          mvn install -q -Pgoogleapi -Dapigee.org=esi-apigee-x-394004 -Denv=eval -Dbearer=${{steps.auth.outputs.access_token}} -Dfile=/home/runner/work/apigee/apigee/EdgeConfig/edge.json -Dapigee.options=async
 
  
 
