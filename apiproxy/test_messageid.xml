@@ -1,0 +1,14 @@
+<APIProxy revision="1" name="github-cloud">
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <CreatedAt>1692344891525</CreatedAt>
+    <LastModifiedAt>1692345383846</LastModifiedAt>
+    <BasePaths>/github_messageid</BasePaths>
+    <Policies>
+        <Policy>AM-Response</Policy>
+        <Policy>FC-JWT-Token</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+</APIProxy>

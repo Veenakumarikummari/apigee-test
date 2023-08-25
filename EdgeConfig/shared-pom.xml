@@ -26,7 +26,7 @@
             <plugin>
                 <groupId>com.apigee.edge.config</groupId>
                 <artifactId>apigee-config-maven-plugin</artifactId>
-                <version>2.4.0</version>
+                <version>1.4.3</version>
                 <executions>
                 	<execution>
                         <id>create-config-specs</id>
@@ -141,13 +141,13 @@
         <profile>
             <id>test</id>
             <properties>
-                <apigee.profile>test</apigee.profile>
+                <apigee.profile>eval</apigee.profile>
                 <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>${org}</apigee.org>
-                <apigee.env>${env}</apigee.env>
-                <apigee.username>${env.APIGEE_USER}</apigee.username>
-		        <apigee.password>${env.APIGEE_PASS}</apigee.password>
+                <apigee.org>esi-apigee-x-394004</apigee.org>
+                <apigee.env>eval</apigee.env>
+                <apigee.username>rajeshjanapati5354@gmail.com</apigee.username>
+		<apigee.password>rajesh123@</apigee.password>
                 <apigee.authtype>oauth</apigee.authtype> <!-- optional: oauth|basic(default) -->
                 <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl> <!-- optional: oauth -->
                 <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
@@ -157,7 +157,7 @@
                 <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
             </properties>
         </profile>
-        <profile>
+<!--         <profile>
             <id>lab3dev</id>
             <properties>
                 <apigee.profile>lab3dev</apigee.profile>
@@ -175,17 +175,17 @@
                 <apigee.bearer>${bearer}</apigee.bearer> <!-- optional: Bearer token override -->
                 <apigee.refresh>${refresh}</apigee.refresh> <!-- optional: Refresh token override -->
             </properties>
-        </profile>
+        </profile> -->
         <profile>
             <id>dev</id>
             <properties>
                 <apigee.profile>dev</apigee.profile>
                 <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>${org}</apigee.org>
-                <apigee.env>${env}</apigee.env>
-                <apigee.username>${username}</apigee.username>
-                <apigee.password>${password}</apigee.password>
+                <apigee.org>esi-apigee-x-394004</apigee.org>
+                <apigee.env>eval</apigee.env>
+                <apigee.username>rajeshjanapati5354@gmail.com</apigee.username>
+                <apigee.password>rajesh123@</apigee.password>
                 <apigee.authtype>oauth</apigee.authtype> <!-- optional: oauth|basic(default) -->
                 <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl> <!-- optional: oauth -->
                 <apigee.mfatoken>${mfatoken}</apigee.mfatoken> <!-- optional: mfa -->
@@ -205,10 +205,3 @@
         </dependency>
     </dependencies>
 </project>
-
-
-
-
-
-
-
